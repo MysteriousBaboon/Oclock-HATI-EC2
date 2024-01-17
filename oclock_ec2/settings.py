@@ -23,9 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-da6oaphm9hpo*(k9bfvl%e+u3r1_3)#fycr!7vf0t8&=gc^g5z'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+#TODO: Debug is a env variable
 DEBUG = True
-
 ALLOWED_HOSTS = ['*']
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'CGKKM4JejXYQ5PIRgC8a',
+        'HOST': 'mark.cfas4wq4cb4x.eu-west-3.rds.amazonaws.com',
+        'PORT': 5432}}
 
 
 # Application definition
@@ -74,12 +83,6 @@ WSGI_APPLICATION = 'oclock_ec2.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
 
 
 # Password validation
