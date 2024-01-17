@@ -21,7 +21,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           source: "."
-          target: "/path/to/target/directory"  # Remplacez par le chemin de déploiement sur EC2
+          target: "/home/ubuntu"  # Remplacez par le chemin de déploiement sur EC2
 
       - name: Run deployment script
         uses: appleboy/ssh-action@master
@@ -33,7 +33,7 @@ jobs:
           script: |
             sudo apt update
             sudo apt install python3-venv
+            python3 -m venv venv 
             source venv/bin/activate
-            cd Oclock-HATI-EC2
             pip install -r requirements.txt
             python manage.py runserver 0.0.0.0:8000
